@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Map</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+   <script src = "data/old_well_4326.geojson"></script>
+
+</head>
+<body>
+    
+<div id="mapid"></div>
+<style>
+    #mapid{ width: 900px; height: 500px;}
+</style>
+
+<script>
+    var map = L.map('mapid').setView([35.91, -79.05], 17);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {}).addTo(map)
+      
+    // L.geoJSON(uncwell).addTo(map)
+
+    var uncIcon = L.icon({
+    iconUrl: 'https://faopharmacy.unc.edu/wp-content/uploads/sites/200/2018/04/Old-Well-Icon-Example.png',
+    iconSize: [50,50], 
+    popupAnchor: [0,0]
+    });
+
+    var customPopup = "UNC Well<br/><img src='https://campaign.unc.edu/wp-content/uploads/2020/11/springupdate-1200x675.jpg'width='100px'/>";
+
+    L.marker([35.9086044, -79.0492252],{icon:uncIcon}).addTo(map)
+        .bindPopup(customPopup)
+        .openPopup();
+
+    // L.geoJSON(carolinahall).addTo(map)
+
+        var uncIcon2 = L.icon({
+    iconUrl: 'https://i.pinimg.com/originals/9d/fe/10/9dfe1057c44560d84567ee10105bb81b.png',
+    iconSize: [50,50], 
+    popupAnchor: [0,0]
+    });
+
+    var customPopup2 = "Carolina Hall<br/><img src='https://geography.unc.edu/wp-content/uploads/sites/140/2014/04/saunders-hall.jpg'/>";
+
+    L.marker([35.9112868, -79.0500007],{icon:uncIcon2}).addTo(map)
+        .bindPopup(customPopup2)
+        .openPopup();
+
+    // L.geoJSON(kenanstadium).addTo(map)
+
+        var uncIcon3 = L.icon({
+    iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThJYlvEGiYJppyRadWrOe7eqmflBEaNlJ80A&usqp=CAU',
+    iconSize: [50,50], 
+    popupAnchor: [0,0]
+    });
+
+    var customPopup3 = "Kenan Stadium<br/><img src='https://images.rivals.com/image/upload/f_auto,q_auto,t_large/ievoc7knpattpe1plfdx'width='100px'/>";
+
+    L.marker([35.9068315, -79.0483611],{icon:uncIcon3}).addTo(map)
+        .bindPopup(customPopup3)
+        .openPopup();
+
+    // L.geoJSON(southroad).addTo(map)
+
+        var uncIcon4 = L.icon({
+    iconUrl: 'https://s.clipartkey.com/mpngs/s/19-198529_highway-road-clipart.png',
+    iconSize: [50,50], 
+    popupAnchor: [0,0]
+    });
+
+    var customPopup4 = "South Road<br/><img src='https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=111&image=111/N11venablelot.JPG&w=900&h=508&r=1'width='100px'/>";
+
+    L.marker([35.9098272, -79.0472724],{icon:uncIcon4}).addTo(map)
+        .bindPopup(customPopup4)
+        .openPopup();
+
+
+</script>
+
+</body>
+</html>
